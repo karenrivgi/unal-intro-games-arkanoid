@@ -46,9 +46,12 @@ public class Paddle : MonoBehaviour
     }
     void Start()
     {
-        smallPaddle.SetActive(false);
-        BigPaddle.SetActive(false);
-        NormalPaddle.SetActive(true);
+        ArkanoidEvent.OnGameStartEvent += OnGameStart;
+    }
+
+    void OnDestroy()
+    {
+         ArkanoidEvent.OnGameStartEvent += OnGameStart;
     }
 
     void Update()
@@ -58,6 +61,14 @@ public class Paddle : MonoBehaviour
         _targetPosition.y = this.transform.position.y; //En y será la misma posición del paddle
 
         transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _speed); // Para obtener un movimiento más suavizado (Lerp)
+    }
+
+    private void OnGameStart()
+    {
+        smallPaddle.SetActive(false);
+        BigPaddle.SetActive(false);
+        NormalPaddle.SetActive(true);
+        _speed = 5;
     }
 
     public void ChangeSpeed(float speedDelta)
