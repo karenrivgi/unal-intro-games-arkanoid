@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee01cc107b38b4ba6fd50ea5aca01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallingSpeed: 0.45
+  fallingSpeed: 1
   gameManager: {fileID: 0}
 --- !u!50 &2833301245006722445
 Rigidbody2D:
